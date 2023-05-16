@@ -1,7 +1,6 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+The project is hosted on:  https://main--chic-douhua-1cbf38.netlify.app/
 ## Available Scripts
 
 In the project directory, you can run:
