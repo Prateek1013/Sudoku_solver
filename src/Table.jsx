@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { Button } from "antd";
 var x = new Array(9);
 for (var i = 0; i < x.length; i++) {
   x[i] = new Array(9).fill('');
@@ -18,11 +18,10 @@ const [arr,setarr]=useState([]);
     arr.push(`${r},${c}`)
     setarr(arr);
    }
-  //console.log(board);
   }
   const solvehandle=()=>{
     main(board);
-    console.log(arr);
+    console.log(pos);
     setshowres(true);
   }
   return ( 
@@ -38,8 +37,7 @@ const [arr,setarr]=useState([]);
                     {
                       showres ?<input type="text" value={board[row][col]} className={!arr.includes(`${row},${col}`)? "cellInputsolved":"cellInput" }  />:
                       <input type="text" onChange={(e)=> handlechange(e,row,col)} className="cellInput"/>
-                    }
-                    
+                    } 
                   </td>
                 })
               }
@@ -48,15 +46,13 @@ const [arr,setarr]=useState([]);
         }
       </tbody>
     </table>
-    <button id="submit" class="button" style={{verticalAlign: 'middle'}}onClick={solvehandle}><span> Solve! </span></button>
-
-    {/* <button onClick={solvehandle}>
-        Solve 
-    </button> */}
+    <br />
+    <button className="btn" onClick={solvehandle}>Solve!</button>
+    
     </>
   );
 }
-
+var pos;
 
 function check(i, j, val, board) {
   for (let k = 0; k < 9; k++) {
@@ -118,7 +114,7 @@ function main(board) {
               else board[i][j] = parseInt(board[i][j]);
           }
       }
-      solveSudoku(board);
+      pos=solveSudoku(board);
 }
 
 export default Table;
